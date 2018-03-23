@@ -5,6 +5,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.io.IOException;
+
 /**
  * Created by Cloud on 3/20/2018
  **/
@@ -19,7 +21,8 @@ public class GearControllerImpl implements GearController {
 
     @Override
     @RequestMapping(value = "/gear", method = RequestMethod.GET)
-    public String getGear() {
-        return this.gearService.getGear("bleeding-hollow", "Draxkal", "8rh2jpnqadv5j3s83yfrthb6kmsrjjse");
+    public String getGear() throws IOException
+    {
+        return this.gearService.getGear("bleeding-hollow", "Draxkal", "b3w7fetmveeuwber2m772cef78d4du87");
     }
 }
