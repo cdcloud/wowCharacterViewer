@@ -51,11 +51,43 @@ public class Character
             default: this.gameClass = "Could Not Determine"; break;
 
         }
-        this.race = race;
-        this.gender = gender;
+        switch (race)
+        {
+            case 1: this.race = "Human"; break;
+            case 2: this.race = "Orc"; break;
+            case 3: this.race = "Dwarf"; break;
+            case 4: this.race = "Night Elf"; break;
+            case 5: this.race = "Undead"; break;
+            case 6: this.race = "Tauren"; break;
+            case 7: this.race = "Gnome"; break;
+            case 8: this.race = "Troll"; break;
+            case 9: this.race = "Goblin"; break;
+            case 10: this.race = "Blood Elf"; break;
+            case 11: this.race = "Draenei"; break;
+            case 22: this.race = "Worgen"; break;
+            case 24: this.race = "Pandaren"; break;
+            case 25: this.race = "Pandaren"; break;
+            case 26: this.race = "Pandaren"; break;
+            case 27: this.race = "Nightborne"; break;
+            case 28: this.race = "Highmountain Tauren"; break;
+            case 29: this.race = "Void Elf"; break;
+            case 30: this.race = "Lightforged Draenei"; break;
+            default: this.race = "Could Not Determine"; break;
+        }
+        switch (gender)
+        {
+            case 0: this.gender = "Male"; break;
+            case 1: this.gender = "Female"; break;
+            default: this.gender = "Could Not Determine"; break;
+        }
         this.level = level;
         this.thumbnail = thumbnail;
-        this.faction = faction;
+        switch (faction)
+        {
+            case 0: this.faction = "Alliance"; break;
+            case 1: this.faction = "Horde"; break;
+            default: this.faction = "Could Not Determine"; break;
+        }
         this.averageIlvl = averageIlvl;
         this.averageIlvlEquipped = averageIlvlEquipped;
         this.head = head;
