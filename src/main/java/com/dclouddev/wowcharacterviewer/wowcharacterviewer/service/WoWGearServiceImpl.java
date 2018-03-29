@@ -12,6 +12,7 @@ import org.springframework.web.client.RestTemplate;
 import org.json.*;
 
 import java.io.IOException;
+import java.util.Iterator;
 import java.util.List;
 import java.util.function.Consumer;
 
@@ -31,14 +32,29 @@ public class WoWGearServiceImpl implements WowGearService {
                 String.class);
 
         JSONObject obj = new JSONObject(response.getBody());
+        JSONObject items = obj.getJSONObject("items");
+
+        int averageIlvl = items.getInt("averageItemLevel");
+        int averageIlvlEquipped = items.getInt("averageItemLevelEquipped");
+        items.remove("averageItemLevel");
+        items.remove("averageItemLevelEquipped");
+        Iterator<String> keys = items.keys();
+        while(keys.hasNext())
+        {
+            String key = (String)keys.next();
+            Object value = items.get(key);
+            if(items.get(key) instanceof JSONObject)
+            {
+                System.out.println(value);
+            }
+        }
 
 
 //        ObjectMapper mapper = new ObjectMapper();
 //        JsonNode root = mapper.readValue(response.getBody(), JsonNode.class);
 //        JsonNode items = root.path("items");
 
-//        int averageIlvl = items.get("averageItemLevel").asInt();
-//        int averageIlvlEquipped = items.get("averageItemLevelEquipped").asInt();
+
 //
 //
 //        for (JsonNode node : items)
