@@ -1,9 +1,7 @@
-package com.dclouddev.wowcharacterviewer.wowcharacterviewer.models;
+package com.dclouddev.wowcharacterviewer.wowcharacterviewer.model;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
-
-import java.util.List;
 
 /**
  * Created by Cloud on 3/20/2018
@@ -28,20 +26,6 @@ public class Gear {
     // TODO relics
     // TODO appearance
 
-
-//    public Gear(String gearType, int id, String name, String icon, int quality, int ilvl, List<Integer> bonusLists, int artifactId, int artifactAppearanceId)
-//    {
-//        this.gearType = gearType;
-//        this.id = id;
-//        this.name = name;
-//        this.icon = icon;
-//        this.quality = quality;
-//        this.ilvl = ilvl;
-////        this.bonusLists = bonusLists;
-//        this.artifactId = artifactId;
-//        this.artifactAppearanceId = artifactAppearanceId;
-//    }
-
     public Gear(String gearType, JSONObject gear)
     {
         this.gearType = gearType;
@@ -56,6 +40,7 @@ public class Gear {
             case 3: this.quality = "Rare"; break;
             case 4: this.quality = "Epic"; break;
             case 5: this.quality = "Legendary"; break;
+            case 6: this.quality = "Artifact"; break;
             default: this.quality = "Could Not Determine"; break;
         }
         this.ilvl = gear.getInt("itemLevel");
@@ -80,6 +65,6 @@ public class Gear {
 
     public int getArtifactId() { return artifactId; }
 
-    public int getArtifactAppearanceID() { return artifactAppearanceId; }
+    public int getArtifactAppearanceId() { return artifactAppearanceId; }
 
 }

@@ -1,6 +1,6 @@
 package com.dclouddev.wowcharacterviewer.wowcharacterviewer.rest;
 
-import com.dclouddev.wowcharacterviewer.wowcharacterviewer.models.Character;
+import com.dclouddev.wowcharacterviewer.wowcharacterviewer.model.Character;
 
 import java.io.IOException;
 

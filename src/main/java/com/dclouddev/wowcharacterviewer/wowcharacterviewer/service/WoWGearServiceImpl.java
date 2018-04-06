@@ -1,12 +1,7 @@
 package com.dclouddev.wowcharacterviewer.wowcharacterviewer.service;
 
-import com.dclouddev.wowcharacterviewer.wowcharacterviewer.models.Gear;
-import com.dclouddev.wowcharacterviewer.wowcharacterviewer.models.Character;
-import com.fasterxml.jackson.core.JsonFactory;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.node.ObjectNode;
+import com.dclouddev.wowcharacterviewer.wowcharacterviewer.model.Gear;
+import com.dclouddev.wowcharacterviewer.wowcharacterviewer.model.Character;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestTemplate;
@@ -14,7 +9,6 @@ import org.json.*;
 
 import java.io.IOException;
 import java.util.*;
-import java.util.function.Consumer;
 
 /**
  * Created by Cloud on 3/20/2018

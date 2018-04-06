@@ -1,7 +1,7 @@
 package com.dclouddev.wowcharacterviewer.wowcharacterviewer.rest;
 
 import com.dclouddev.wowcharacterviewer.wowcharacterviewer.service.WowGearService;
-import com.dclouddev.wowcharacterviewer.wowcharacterviewer.models.Character;
+import com.dclouddev.wowcharacterviewer.wowcharacterviewer.model.Character;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
