@@ -1,5 +1,7 @@
 package com.dclouddev.wowcharacterviewer.wowcharacterviewer.controllers;
 
+import com.dclouddev.wowcharacterviewer.wowcharacterviewer.models.Character;
+
 import java.io.IOException;
 
 /**
@@ -7,5 +9,5 @@ import java.io.IOException;
  **/
 public interface GearController {
 
-    String getGear() throws IOException;
+    Character getGear() throws IOException;
 }

@@ -1,6 +1,7 @@
 package com.dclouddev.wowcharacterviewer.wowcharacterviewer.controllers;
 
 import com.dclouddev.wowcharacterviewer.wowcharacterviewer.service.WowGearService;
+import com.dclouddev.wowcharacterviewer.wowcharacterviewer.models.Character;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -21,7 +22,7 @@ public class GearControllerImpl implements GearController {
 
     @Override
     @RequestMapping(value = "/gear", method = RequestMethod.GET)
-    public String getGear() throws IOException
+    public Character getGear() throws IOException
     {
         return this.gearService.getGear("bleeding-hollow", "Draxkal", "b3w7fetmveeuwber2m772cef78d4du87");
     }

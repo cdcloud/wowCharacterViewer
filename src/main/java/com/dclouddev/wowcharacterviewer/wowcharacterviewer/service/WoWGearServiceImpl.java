@@ -1,6 +1,7 @@
 package com.dclouddev.wowcharacterviewer.wowcharacterviewer.service;
 
 import com.dclouddev.wowcharacterviewer.wowcharacterviewer.models.Gear;
+import com.dclouddev.wowcharacterviewer.wowcharacterviewer.models.Character;
 import com.fasterxml.jackson.core.JsonFactory;
 import com.fasterxml.jackson.core.JsonParser;
 import com.fasterxml.jackson.databind.JsonNode;
@@ -12,8 +13,7 @@ import org.springframework.web.client.RestTemplate;
 import org.json.*;
 
 import java.io.IOException;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 import java.util.function.Consumer;
 
 /**
@@ -25,47 +25,27 @@ public class WoWGearServiceImpl implements WowGearService {
     private RestTemplate restTemplate = new RestTemplate();
 
     @Override
-    public String getGear(String server, String character, String apiKey) throws IOException
+    public Character getGear(String server, String characterName, String apiKey) throws IOException
     {
         ResponseEntity<String> response = restTemplate.getForEntity(
-                "https://us.api.battle.net/wow/character/" + server + "/" + character + "?fields=items&locale=en_US&apikey=" + apiKey,
+                "https://us.api.battle.net/wow/character/" + server + "/" + characterName + "?fields=items&locale=en_US&apikey=" + apiKey,
                 String.class);
 
         JSONObject obj = new JSONObject(response.getBody());
-        JSONObject items = obj.getJSONObject("items");
 
-        int averageIlvl = items.getInt("averageItemLevel");
-        int averageIlvlEquipped = items.getInt("averageItemLevelEquipped");
-        items.remove("averageItemLevel");
-        items.remove("averageItemLevelEquipped");
-        Iterator<String> keys = items.keys();
+        Iterator<String> keys = obj.getJSONObject("items").keys();
+        Map<String, Gear> gearList = new HashMap<String, Gear>(17);
+
         while(keys.hasNext())
         {
             String key = (String)keys.next();
-            Object value = items.get(key);
-            if(items.get(key) instanceof JSONObject)
+            if (obj.getJSONObject("items").get(key) instanceof JSONObject)
             {
-                System.out.println(value);
+                Gear gear = new Gear(key, obj.getJSONObject("items").getJSONObject(key));
+                gearList.put(key, gear);
             }
         }
 
-
-//        ObjectMapper mapper = new ObjectMapper();
-//        JsonNode root = mapper.readValue(response.getBody(), JsonNode.class);
-//        JsonNode items = root.path("items");
-
-
-//
-//
-//        for (JsonNode node : items)
-//        {
-//            System.out.println(node.toString());
-//        }
-//
-//        JsonNode headNode = items.path("head");
-
-//        String name = headNode.get("name").toString();
-
-        return response.getBody();
+        return new Character(obj, gearList);
     }
 }

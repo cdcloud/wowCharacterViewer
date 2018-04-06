@@ -1,4 +1,5 @@
 package com.dclouddev.wowcharacterviewer.wowcharacterviewer.service;
+import com.dclouddev.wowcharacterviewer.wowcharacterviewer.models.Character;
 
 import java.io.IOException;
 
@@ -7,5 +8,5 @@ import java.io.IOException;
  **/
 public interface WowGearService {
 
-    String getGear(String server, String character, String apiKey) throws IOException;
+    Character getGear(String server, String character, String apiKey) throws IOException;
 }
