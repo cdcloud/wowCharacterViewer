@@ -1,4 +1,4 @@
-package com.dclouddev.wowcharacterviewer.wowcharacterviewer.controllers;
+package com.dclouddev.wowcharacterviewer.wowcharacterviewer.rest;
 
 import com.dclouddev.wowcharacterviewer.wowcharacterviewer.models.Character;
 
