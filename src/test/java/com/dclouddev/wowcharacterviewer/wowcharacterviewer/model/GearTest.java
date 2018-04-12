@@ -41,7 +41,6 @@ public class GearTest
         this.legendaryGear = new Gear(gearType, legendaryObject);
         this.artifactGear = new Gear(gearType, artifactObject);
         this.notDeterminedGear = new Gear(gearType, notDeterminedObject);
-
     }
 
     @After
